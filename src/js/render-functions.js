@@ -3,6 +3,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+let lightbox = new SimpleLightbox('.gallery a');
+
 export const renderGallery = images => {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
@@ -17,23 +19,24 @@ export const renderGallery = images => {
     return;
   }
 
-  images.forEach(image => {
-    const galleryItem = document.createElement('div');
-    galleryItem.classList.add('gallery-item');
-    galleryItem.innerHTML = `
+  const markup = images
+    .map(
+      image => `
+    <div class="gallery-item">
       <a href="${image.largeImageURL}">
         <img src="${image.webformatURL}" alt="${image.tags}" />
       </a>
       <div class="info">
-        <p>Likes<span>${image.likes}</span> </p>
+        <p>Likes<span>${image.likes}</span></p>
         <p>Views <span>${image.views}</span></p>
-        <p>Comments<span>${image.comments}</span> </p>
-        <p>Downloads<span>${image.downloads}</span> </p>
+        <p>Comments<span>${image.comments}</span></p>
+        <p>Downloads<span>${image.downloads}</span></p>
       </div>
-    `;
-    gallery.appendChild(galleryItem);
-  });
+    </div>
+  `
+    )
+    .join('');
 
-  const lightbox = new SimpleLightbox('.gallery a');
+  gallery.innerHTML = markup;
   lightbox.refresh();
 };
