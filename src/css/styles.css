@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-ul{
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -63,10 +63,6 @@ body {
   background: #6c8cff;
 }
 
-/* .loader {
-  width: 256px;
-  margin: 32px auto;
-} */
 .loader {
   width: 256px;
   margin: 32px calc(60% - 256px);
