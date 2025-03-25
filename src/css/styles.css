@@ -57,9 +57,37 @@ body {
   background: #6c8cff;
 }
 
-.loader {
+/* .loader {
   width: 256px;
   margin: 32px auto;
+} */
+.loader {
+  width: 256px;
+  margin: 32px calc(60% - 256px);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+.loader:after {
+  content: '';
+  height: 4px;
+  width: 0%;
+  display: block;
+  background: #4e75ff;
+  animation: 5s lineGrow linear infinite;
+}
+
+@keyframes lineGrow {
+  to {
+    width: 100%;
+  }
 }
 
 .hidden {
