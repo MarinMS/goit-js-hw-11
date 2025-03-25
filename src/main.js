@@ -10,6 +10,9 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const query = searchInput.value.trim();
 
+    const gallery = document.querySelector('.gallery');
+  gallery.innerHTML = '';
+  
   if (!query) {
     iziToast.warning({
       title: 'Warning',
